@@ -1,21 +1,25 @@
 import React from 'react';
+import { format } from 'date-fns';
 
 import './style.css';
 
-class Contact extends React.Component {
-  render() {
-    return (
-      <article className="contact">
-        <span className="contact__avatar" />
-        <span className="contact__data">Nome</span>
-        <span className="contact__data">Telefone</span>
-        <span className="contact__data">País</span>
-        <span className="contact__data">Admissão</span>
-        <span className="contact__data">Empresa</span>
-        <span className="contact__data">Departamento</span>
-      </article>
-    );
-  }
+const Contact = ({ contact }) => {
+  const date = new Date(contact.admissionDate);
+  const formatDate = format(date, 'dd/MM/yyyy');
+
+  return (
+    <article className="contact">
+      <span className="contact__avatar">
+        <img src={contact.avatar} alt={contact.name}/>
+      </span>
+      <span className="contact__data">{contact.name}</span>
+      <span className="contact__data">{contact.phone}</span>
+      <span className="contact__data">{contact.country}</span>
+      <span className="contact__data">{formatDate}</span>
+      <span className="contact__data">{contact.company}</span>
+      <span className="contact__data">{contact.department}</span>
+    </article>
+  );
 }
 
 export default Contact;
