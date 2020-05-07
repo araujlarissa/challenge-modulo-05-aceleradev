@@ -1,50 +1,16 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import './style.css';
 
-const Filters = ({ contacts }) => {
-  const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState('name');
-
-  useEffect(() => {
-    if (search !== '') {
-      let filtered = '';
-      const regex = new RegExp(search, 'i');
-
-      const filteredContacts = contacts.filter(contact => {      
-        if (filter === 'name')
-          filtered = contact.name;  
-          
-        if (filter === 'country')
-        filtered = contact.country; 
-
-        if (filter === 'company')
-        filtered = contact.company; 
-
-        if (filter === 'department')
-        filtered = contact.department; 
-
-        if (filter === 'admissionDate')
-        filtered = contact.admissionDate; 
-        
-        return filtered.match(regex);
-      });
-
-      console.log(filteredContacts);
-    }
-  }, [search]);
-
+const Filters = ({ handleFilter, handleSearch }) => {
 	return (
     <section className="filters">
       <div className="filters__search">
         <input 
           type="text" 
           className="filters__search__input" 
-          placeholder="Pesquisar" 
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Pesquisar"
+          onChange={(e) => handleSearch(e)}
         />
 
         <button className="filters__search__icon">
@@ -54,35 +20,35 @@ const Filters = ({ contacts }) => {
 
       <button 
         className="filters__item is-selected"
-        onClick={() => setFilter('name')}
+        onClick={() => handleFilter('name')}
       >
         Nome <i className="fas fa-sort-down" />
       </button>
 
       <button 
         className="filters__item"
-        onClick={() => setFilter('country')}
+        onClick={() => handleFilter('country')}
       >
         País <i className="fas fa-sort-down" />
       </button>
 
       <button 
         className="filters__item"
-        onClick={() => setFilter('company')}
+        onClick={() => handleFilter('company')}
       >
         Empresa <i className="fas fa-sort-down" />
       </button>
 
       <button 
         className="filters__item"
-        onClick={() => setFilter('department')}
+        onClick={() => handleFilter('department')}
       >
         Departamento <i className="fas fa-sort-down" />
       </button>
 
       <button 
         className="filters__item"
-        onClick={() => setFilter('admissionDate')}
+        onClick={() => handleFilter('admissionDate')}
       >
         Data de admissão <i className="fas fa-sort-down" />
       </button>
