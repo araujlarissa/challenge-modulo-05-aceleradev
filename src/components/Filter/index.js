@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './style.css';
 
 const Filters = ({ handleFilter, handleSearch }) => {
+  const [selected, setSelected] = useState('name');
+
+  const handleClick = (filter) => {
+    setSelected(filter);
+    handleFilter(filter);
+  }
+
 	return (
     <section className="filters">
       <div className="filters__search">
@@ -19,36 +26,36 @@ const Filters = ({ handleFilter, handleSearch }) => {
       </div>
 
       <button 
-        className="filters__item is-selected"
-        onClick={() => handleFilter('name')}
+        className={ selected === 'name' ? 'filters__item is-selected' :  'filters__item'}
+        onClick={() => handleClick('name')}
       >
         Nome <i className="fas fa-sort-down" />
       </button>
 
       <button 
-        className="filters__item"
-        onClick={() => handleFilter('country')}
+        className={ selected === 'country' ? 'filters__item is-selected' :  'filters__item'}
+        onClick={() => handleClick('country')}
       >
         País <i className="fas fa-sort-down" />
       </button>
 
       <button 
-        className="filters__item"
-        onClick={() => handleFilter('company')}
+        className={ selected === 'company' ? 'filters__item is-selected' :  'filters__item'}
+        onClick={() => handleClick('company')}
       >
         Empresa <i className="fas fa-sort-down" />
       </button>
 
       <button 
-        className="filters__item"
-        onClick={() => handleFilter('department')}
+        className={ selected === 'department' ? 'filters__item is-selected' :  'filters__item'}
+        onClick={() => handleClick('department')}
       >
         Departamento <i className="fas fa-sort-down" />
       </button>
 
       <button 
-        className="filters__item"
-        onClick={() => handleFilter('admissionDate')}
+        className={ selected === 'admissionDate' ? 'filters__item is-selected' :  'filters__item'}
+        onClick={() => handleClick('admissionDate')}
       >
         Data de admissão <i className="fas fa-sort-down" />
       </button>
