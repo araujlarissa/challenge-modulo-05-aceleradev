@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './style.css';
 
 const Filters = ({ handleFilter, handleSearch }) => {
-  const [selected, setSelected] = useState('name');
+  const [selected, setSelected] = useState('');
 
   const handleClick = (filter) => {
     setSelected(filter);

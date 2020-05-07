@@ -11,43 +11,45 @@ import './App.css';
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('name');
+  const [filter, setFilter] = useState('');
   const [search, setSearch] = useState('');
 
   const handleFilter = (nameFilter) => {
     setFilter(nameFilter);
+
+    setContacts(filterContacts(nameFilter));
   }
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
   }
 
-  const filterContacts = (search, filter) => {
-    let filtered = '';
+  const searchContacts = (search, filter) => {
+    if (!filter) filter = 'name';
+
     const regex = new RegExp(search, 'i');
 
-    const filteredContacts = contacts.filter(contact => {      
-      if (filter === 'name')
-        filtered = contact.name;  
-        
-      if (filter === 'country')
-        filtered = contact.country; 
-
-      if (filter === 'company')
-        filtered = contact.company; 
-
-      if (filter === 'department')
-        filtered = contact.department; 
+    return contacts.filter(contact => { 
+      let searched = '';
 
       if (filter === 'admissionDate') {
         const date = new Date(contact.admissionDate);
-        filtered = format(date, 'dd/MM/yyyy');
+        searched = format(date, 'dd/MM/yyyy');
+      } else {
+        searched = contact[filter];  
       }
 
-      return filtered.match(regex);
+      return searched.match(regex);
     });
+  }
 
-    return filteredContacts;
+  const filterContacts = (filter) => {
+    return contacts.sort((previous, next) => {
+      const prev = previous[filter];
+      const nex = next[filter];
+
+      return (prev > nex) ? 1 : ((nex > prev) ? -1 : 0);
+    });
   }
 
   const loadContacts = () => {
@@ -56,7 +58,7 @@ const App = () => {
     fetch('https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts')
       .then(response => response.json())
       .then(data => {
-        search !== '' ? setContacts(filterContacts(search, filter)) : setContacts(data); 
+        setContacts(data);
         setLoading(false);
       })
       .catch(error => {
@@ -66,7 +68,9 @@ const App = () => {
 
   useEffect(() => {
     loadContacts();
-  }, [search]);
+  }, []); 
+
+  const contactsList = search ? searchContacts(search, filter) : contacts;
 
   return (
     <>
@@ -78,7 +82,7 @@ const App = () => {
 
       <div className="container">
       {loading ? <h1>Loading...</h1> :
-        <Contacts contacts={contacts} /> 
+        (contactsList.length > 0 ? <Contacts contacts={contactsList} /> : 'Nenhum resultado encontrado!')
       }  
       </div>
     </>
