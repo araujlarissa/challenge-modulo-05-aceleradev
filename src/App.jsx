@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import Topbar from './components/Topbar';
 import Filter from './components/Filter';
 import Contacts from './components/Contacts';
+import Loading from './components/Loading';
 
 import './App.css';
 
@@ -81,7 +82,7 @@ const App = () => {
       </div>
 
       <div className="container">
-      {loading ? <h1>Loading...</h1> :
+      {loading ? <Loading /> :
         (contactsList.length > 0 ? <Contacts contacts={contactsList} /> : 'Nenhum resultado encontrado!')
       }  
       </div>
