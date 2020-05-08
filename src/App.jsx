@@ -6,6 +6,7 @@ import Topbar from './components/Topbar';
 import Filter from './components/Filter';
 import Contacts from './components/Contacts';
 import Loading from './components/Loading';
+import NoSearch from './components/NoSearch';
 
 import './App.css';
 
@@ -76,14 +77,11 @@ const App = () => {
   return (
     <>
       <Topbar />
-
-      <div className="container">
-        <Filter handleFilter={handleFilter} handleSearch={handleSearch} />
-      </div>
-
+      <Filter handleFilter={handleFilter} handleSearch={handleSearch} />
+      
       <div className="container">
       {loading ? <Loading /> :
-        (contactsList.length > 0 ? <Contacts contacts={contactsList} /> : 'Nenhum resultado encontrado!')
+        (contactsList.length > 0 ? <Contacts contacts={contactsList} /> : <NoSearch />)
       }  
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './animation.css';
-import './styles.css';
+import './style.css';
 
 import { ReactComponent as LogoSvg } from '../../assets/logo.svg';
 

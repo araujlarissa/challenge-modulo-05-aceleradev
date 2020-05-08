@@ -7,14 +7,14 @@ import './style.css';
 const Contacts = ({ contacts }) => {
   return (
     <section className="contacts">
-      <article className="contact">
-        <span className="contact__avatar" />
-        <span className="contact__data">Nome</span>
-        <span className="contact__data">Telefone</span>
-        <span className="contact__data">País</span>
-        <span className="contact__data">Admissão</span>
-        <span className="contact__data">Empresa</span>
-        <span className="contact__data">Departamento</span>
+      <article className="description">
+        <span className="description__item"></span>
+        <span className="description__item">Nome</span>
+        <span className="description__item">Telefone</span>
+        <span className="description__item">País</span>
+        <span className="description__item">Admissão</span>
+        <span className="description__item">Empresa</span>
+        <span className="description__item">Departamento</span>
       </article>
 
       {contacts.map(contact => (
