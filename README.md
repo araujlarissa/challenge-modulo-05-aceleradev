@@ -6,8 +6,8 @@
 :computer: :running:  Acelera Dev React  :running: :computer:
 </h3>
 
-## :telephone_receiver: SPA: App de Contatos
-> **:point_right: Preview:** 
+## :telephone_receiver: SPA: Contacts
+> **Preview:** 
 > [Contacts SPA](https://challenge-contacts.netlify.app/)
 
 <p align="center">
@@ -25,6 +25,10 @@ O desafio é desenvolver um *SPA (Single Page Application)* de uma lista de cont
 
 > GET: *https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts*
 
+#### :pushpin: Modificações
+- Loading Animation
+- Responsividade
+- Dark/Light Theme
 ---
 
 Made by :blue_heart: by [Larissa Araújo](https://github.com/arauj0)
