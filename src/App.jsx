@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { format } from 'date-fns';
+
+import { formatDate } from './utils/formatDate';
 
 import Topbar from './components/Topbar';
 import Filter from './components/Filter';
@@ -35,8 +36,7 @@ const App = () => {
       let searched = '';
 
       if (filter === 'admissionDate') {
-        const date = new Date(contact.admissionDate);
-        searched = format(date, 'dd/MM/yyyy');
+        searched = formatDate(contact.admissionDate);
       } else {
         searched = contact[filter];  
       }

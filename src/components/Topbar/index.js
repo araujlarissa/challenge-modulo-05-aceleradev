@@ -29,7 +29,7 @@ const Topbar = () => {
       </a>
 
       <div className="topbar__toggle">
-        <Toggle toggleTheme={toggleTheme} />
+        <Toggle toggleTheme={toggleTheme} theme={theme.title} />
       </div>
     </div>
   </header>
