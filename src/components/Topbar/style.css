@@ -6,7 +6,7 @@
 
   width: 100%;
   
-  padding: 1.2rem 0;
+  padding: 1.4rem 0;
 
 	backface-visibility: hidden;
   background: var(--backgroundSecondary);
@@ -16,13 +16,32 @@
 .topbar__container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .topbar__logo {
-  height: 38px;
+  height: 32px;
+  margin-left: 1.6rem;
 }
 
-.topbar__logo svg {
+.topbar__logo img {
   height: 100%;
+}
+
+@media (min-width: 768px) {
+  .topbar__container {
+    justify-content: center;
+  }
+  
+  .topbar__logo {
+    height: 38px;
+  }
+  
+  .topbar__toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 0.5rem 0;
+  }
 }

@@ -5,7 +5,7 @@ import './style.css';
 const NoSearch = () => (
   <div className="no-search"> 
     <span className="no-search__msg">Nenhum resultado encontrado!</span>
-    <i class="far fa-surprise"></i>
+    <i className="far fa-surprise"></i>
   </div>
 );
 

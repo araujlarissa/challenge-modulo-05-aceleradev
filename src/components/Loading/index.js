@@ -12,7 +12,7 @@ const Loading = () => (
     </div> 
     
     <div id="escapingBallG">
-      <div id="escapingBall_1" class="escapingBallG"></div>
+      <div id="escapingBall_1" className="escapingBallG"></div>
     </div>
   </div>
 );

@@ -8,7 +8,7 @@ import Contacts from './components/Contacts';
 import Loading from './components/Loading';
 import NoSearch from './components/NoSearch';
 
-import './App.css';
+import './styles/global.css';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
