@@ -7,9 +7,6 @@
 </h3>
 
 ## :telephone_receiver: SPA: Contacts
-> **Preview:** 
-> [Contacts SPA](https://challenge-contacts.netlify.app/)
-
 <p align="center">
   <img alt="project" src="./.github/challenge-modulo-05.gif" />
 </p>
